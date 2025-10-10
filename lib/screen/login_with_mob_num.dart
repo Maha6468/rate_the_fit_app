@@ -12,66 +12,100 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
+        resizeToAvoidBottomInset: true,
+        body: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
               gradient: LinearGradient(
                   colors: [Colors.black,Color(0xFF3B2F2F)],
                   begin: Alignment.bottomLeft,
                   end: Alignment.topRight
               )
           ),
-        child: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Column(
-             // mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-
-                Align(
-                  alignment: Alignment.topRight,
-                  child: CircleAvatar(
-                    radius: 28,
-                    backgroundColor: Colors.black,
-                    child:Image.asset("assets/images/maha.png",height: 100,width: 100,fit:BoxFit.cover,),
-                  ),
-                ),
-
-              SizedBox(height: 30,),
-              Text("Login With \nMobile Number",style: TextStyle(color: Colors.white,fontSize: 30,fontWeight:FontWeight.bold),),
-                Text("Welcome Back Out App !!!",style: TextStyle(color: Colors.grey),),
-
-                SizedBox(height: 25,),
-
-                Row(
+          child: SafeArea(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 8),
-                      decoration: BoxDecoration(
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(8),
+              
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: CircleAvatar(
+                        radius: 28,
+                        backgroundColor: Colors.black,
+                        child:Image.asset("assets/images/maha.png",height: 100,width: 100,fit:BoxFit.cover,),
                       ),
-                      child: CountryCodePicker(
-                        initialSelection: 'US',
-                        showCountryOnly: false,
-                        alignLeft: false,
-                        textStyle: const TextStyle(color: Colors.white),
-
-                      ),
-
                     ),
+              
+                    SizedBox(height: 30,),
+                    Text("Login With \nMobile Number",style: TextStyle(color: Colors.white,fontSize: 30,fontWeight:FontWeight.bold),),
+                    Text("Welcome Back Out App !!!",style: TextStyle(color: Colors.grey),),
+              
+                    SizedBox(height: 25,),
+              
+                    Row(
+                      children: [
+                        Container(
+                          height: 50,width: 100,
+                          //padding: const EdgeInsets.symmetric(horizontal: 8),
+                          decoration: BoxDecoration(
+                            color: Colors.black54,
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          child: Row(
+                           // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                flex: 2,
+                                child: CountryCodePicker(
+                                  initialSelection: 'US',
+                                  showCountryOnly: false,
+                                  alignLeft: false,
+                                  textStyle: const TextStyle(color: Colors.white),
+                                  dialogSize: Size(
+                                    MediaQuery.of(context).size.width * 0.8,
+                                    MediaQuery.of(context).size.height * 0.6,
+                                  ),
+                                ),
+                              ),
+                              //Icon(Icons.keyboard_arrow_down_outlined,color: Colors.white,)
+                            ],
+                          ),
+                        ),
+              
+                        SizedBox(width: 10,),
+                        Expanded(
+                          flex: 3,
+                          child: SizedBox(
+                           // height: 50,
+                            child: TextField(
+                              decoration: InputDecoration(
+                                hintText: "Mobile Number",
+                                hintStyle: TextStyle(color: Colors.grey,fontSize: 14),
+                                filled: true,
+                                fillColor: Colors.black54,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(8),
+                                  borderSide: BorderSide.none
+                                )
+                              ),
+                            ),
+                          ),
+                        )
+              
+                      ],
+                    )
+              
                   ],
-                )
-
-
-
-            ],
+                ),
+              ),
             ),
           ),
-        ),
-      )
+        )
     );
   }
 }
