@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rate_the_fit_app/screen/create_an_account.dart';
 import 'package:rate_the_fit_app/screen/login_with_mob_num.dart';
 import 'package:rate_the_fit_app/screen/otp_varification.dart';
 import 'package:rate_the_fit_app/screen/practice.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:OTP_Varification(),
+      home:Create_An_Account(),
     );
   }
 }
