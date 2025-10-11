@@ -3,14 +3,23 @@ import 'package:pinput/pinput.dart';
 
 import 'package:rate_the_fit_app/coustom_widget/custom_elevated_button.dart';
 import 'package:rate_the_fit_app/coustom_widget/custom_signIn_signUp_resend.dart';
+import 'package:rate_the_fit_app/screen/practice.dart';
 
+import '../coustom_widget/custom_congratulations.dart';
 import '../coustom_widget/custom_star_image.dart';
 
-class OTP_Varification extends StatelessWidget {
+class OTP_Varification extends StatefulWidget {
    OTP_Varification({super.key});
 
+  @override
+  State<OTP_Varification> createState() => _OTP_VarificationState();
+}
+
+class _OTP_VarificationState extends State<OTP_Varification> {
    final pinController = TextEditingController();
+
    final focusNode = FocusNode();
+
   @override
   Widget build(BuildContext context) {
 
@@ -65,8 +74,8 @@ class OTP_Varification extends StatelessWidget {
                   Text("+12345667890", style: TextStyle(
                       color: Colors.grey.shade50, fontWeight: FontWeight.w500),),
                   SizedBox(height: 20,),
-            
-            
+
+
                   Center(
                     child: Pinput(
                       length: 4,
@@ -78,21 +87,36 @@ class OTP_Varification extends StatelessWidget {
                       },
                     ),
                   ),
-            
-            
-            
+
+
+
                   SizedBox(height: 10,),
-            
+
                   Custom_SignIn_SignUp_Resend(text: "Don't receive the OTP?",
                     buttontext: 'Resend',
                     onPressed: () {},),
-            
+
                   SizedBox(height: 10,),
-            
+
                   Center(child: Custom_Elevated_Button(
-                    text: 'Submit', height: 60, width: 300,))
-            
-            
+                    text: 'Submit', height: 60, width: 300, onPressed: () {
+
+                    showDialog(
+                      context: context,
+                      barrierDismissible: false, // user dismiss করতে পারবে না
+                      builder: (context) => Custom_Congratulations(),
+                    );
+
+
+                    Future.delayed(Duration(seconds: 20), () {
+                      Navigator.of(context).pop(); // dialog close
+                      Navigator.pushReplacementNamed(context, '/home'); // home page
+                    });
+
+
+                  },))
+
+
                 ],
               ),
             ),

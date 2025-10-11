@@ -4,7 +4,8 @@ class Custom_Elevated_Button extends StatelessWidget {
   final String text;
   final double width;
   final double height;
-  const Custom_Elevated_Button({super.key, required this.text, required this.width, required this.height});
+  final VoidCallback onPressed;
+  const Custom_Elevated_Button({super.key, required this.text, required this.width, required this.height, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +18,7 @@ class Custom_Elevated_Button extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10))
 
           ),
-          onPressed: (){
-
-      }, child:Row(
+          onPressed:onPressed, child:Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(text,style: TextStyle(color: Colors.white,fontSize: 16),),
