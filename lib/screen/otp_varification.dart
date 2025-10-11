@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
+import 'package:rate_the_fit_app/coustom_widget/custom_elevated_button.dart';
+import 'package:rate_the_fit_app/coustom_widget/custom_signIn_signUp_resend.dart';
 
 import '../coustom_widget/custom_star_image.dart';
 
@@ -45,13 +47,13 @@ class _OTP_VarificationState extends State<OTP_Varification> {
                     showCursor: true,
                     defaultPinTheme: PinTheme(
                       width: 80,
-                      height: 60,
+                      height: 55,
                       decoration: BoxDecoration(
                         color: Colors.black54,
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(color: Colors.grey.shade800),
                       ),
-                      textStyle: const TextStyle(
+                      textStyle:  TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
@@ -59,6 +61,14 @@ class _OTP_VarificationState extends State<OTP_Varification> {
                     ),
                   ),
                 ),
+
+                SizedBox(height: 10,),
+
+                Custom_SignIn_SignUp_Resend(text: "Don't receive the OTP?", buttontext: 'Resend', onPressed: () {  },),
+
+                SizedBox(height: 10,),
+
+                Center(child: Custom_Elevated_Button(text: 'Submit', height: 60, width: 300,))
 
 
 

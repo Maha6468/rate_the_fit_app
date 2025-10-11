@@ -97,7 +97,7 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                     ),
                     SizedBox(height: 40,),
                     Center(
-                        child: Custom_Button(text: 'LOGIN', width: 300, height: 50,)),
+                        child: Custom_Elevated_Button(text: 'LOGIN', width: 300, height: 50,)),
                     SizedBox(height: 40),
 
                     Row(

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class Custom_Button extends StatelessWidget {
+class Custom_Elevated_Button extends StatelessWidget {
   final String text;
   final double width;
   final double height;
-  const Custom_Button({super.key, required this.text, required this.width, required this.height});
+  const Custom_Elevated_Button({super.key, required this.text, required this.width, required this.height});
 
   @override
   Widget build(BuildContext context) {
