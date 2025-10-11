@@ -1,7 +1,8 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 
-import '../coustom_widget/custom_button.dart';
+import '../coustom_widget/custom_elevated_button.dart';
+import '../coustom_widget/custom_signIn_signUp_resend.dart';
 
 class Login_With_Mob_Num extends StatefulWidget {
   const Login_With_Mob_Num({super.key});
@@ -30,8 +31,7 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
-                  // mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
               
                     Align(
@@ -102,7 +102,8 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                       ],
                     ),
                     SizedBox(height: 40,),
-                    Custom_Button(text: 'LOGIN',),
+                    Center(
+                        child: Custom_Button(text: 'LOGIN', width: 300, height: 50,)),
                     SizedBox(height: 40),
 
                     Row(
@@ -114,7 +115,7 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                               gradient: LinearGradient(
                                 colors: [
                                   Colors.transparent,
-                                  Colors.white54,
+                                  Colors.white12,
                                   Colors.white,
                                 ],
                                 begin: Alignment.centerLeft,
@@ -135,7 +136,7 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                               gradient: LinearGradient(
                                 colors: [
                                   Colors.transparent,
-                                  Colors.white54,
+                                  Colors.white12,
                                   Colors.white,
                                 ],
                                 begin: Alignment.centerRight,
@@ -156,7 +157,7 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                           child: OutlinedButton(
                             onPressed: () {},
                             style: OutlinedButton.styleFrom(
-                              side: BorderSide(color: Colors.white54),
+                              side: BorderSide(color: Colors.grey.shade900),
                               foregroundColor: Colors.white,
                               padding: EdgeInsets.symmetric(vertical: 12),
                             ),
@@ -180,7 +181,7 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                           child: OutlinedButton(
                             onPressed: () {},
                             style: OutlinedButton.styleFrom(
-                              side: BorderSide(color: Colors.white54),
+                              side: BorderSide(color: Colors.grey.shade900),
                               foregroundColor: Colors.white,
                               padding: EdgeInsets.symmetric(vertical: 12),
                             ),
@@ -202,29 +203,9 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                       ],
                     ),
 
-                   // Spacer(),
                     SizedBox(height: 100,),
 
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Text("Don’t have an account? ",
-                            style: TextStyle(color: Colors.white70)),
-                        GestureDetector(
-                          onTap: () {},
-                          child: const Text(
-                            "Sign Up",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                      ],
-                    ),
-
-
-                   // SizedBox(height: 10),
+                    Custom_SignIn_SignUp_Resend(text: "Don't have an account?", buttontext: 'Sign Up',),
 
                   ],
                 ),
