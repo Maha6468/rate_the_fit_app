@@ -103,14 +103,14 @@ class _OTP_VarificationState extends State<OTP_Varification> {
 
                     showDialog(
                       context: context,
-                      barrierDismissible: false, // user dismiss করতে পারবে না
+                      barrierDismissible: true,
                       builder: (context) => Custom_Congratulations(),
                     );
 
 
-                    Future.delayed(Duration(seconds: 20), () {
-                      Navigator.of(context).pop(); // dialog close
-                      Navigator.pushReplacementNamed(context, '/home'); // home page
+                    Future.delayed(Duration(seconds: 60), () {
+                      Navigator.of(context).pop();
+                      Navigator.pushReplacementNamed(context, '/home');
                     });
 
 
