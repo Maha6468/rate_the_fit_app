@@ -202,6 +202,29 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                       ],
                     ),
 
+                   // Spacer(),
+                    SizedBox(height: 100,),
+
+
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Don’t have an account? ",
+                            style: TextStyle(color: Colors.white70)),
+                        GestureDetector(
+                          onTap: () {},
+                          child: const Text(
+                            "Sign Up",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+
+
+                   // SizedBox(height: 10),
 
                   ],
                 ),
