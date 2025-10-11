@@ -1,6 +1,8 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
 
+import '../coustom_widget/custom_button.dart';
+
 class Login_With_Mob_Num extends StatefulWidget {
   const Login_With_Mob_Num({super.key});
 
@@ -29,7 +31,7 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
                   // mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
               
                     Align(
@@ -81,7 +83,7 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                         Expanded(
                           flex: 3,
                           child: SizedBox(
-                           // height: 50,
+                            height: 50,
                             child: TextField(
                               decoration: InputDecoration(
                                 hintText: "Mobile Number",
@@ -98,8 +100,109 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                         )
               
                       ],
-                    )
-              
+                    ),
+                    SizedBox(height: 40,),
+                    Custom_Button(text: 'LOGIN',),
+                    SizedBox(height: 40),
+
+                    Row(
+                      children:[
+                        Expanded(
+                          child: Container(
+                            height: 1.5,
+                            decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Colors.transparent,
+                                  Colors.white54,
+                                  Colors.white,
+                                ],
+                                begin: Alignment.centerLeft,
+                                end: Alignment.centerRight,
+                              ),
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 15),
+                          child: Text("Or",
+                              style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold)),
+                        ),
+                        Expanded(
+                          child: Container(
+                            height: 1.5,
+                            decoration: const BoxDecoration(
+                              gradient: LinearGradient(
+                                colors: [
+                                  Colors.transparent,
+                                  Colors.white54,
+                                  Colors.white,
+                                ],
+                                begin: Alignment.centerRight,
+                                end: Alignment.centerLeft,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+
+                    SizedBox(height: 40),
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                              side: BorderSide(color: Colors.white54),
+                              foregroundColor: Colors.white,
+                              padding: EdgeInsets.symmetric(vertical: 12),
+                            ),
+                            child: Row(
+                              //mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Image.asset("assets/images/google.png",fit:BoxFit.cover,height: 30,width: 20,),
+                                Flexible(
+                                  child: Text(
+                                    "Sign With Google",
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: OutlinedButton(
+                            onPressed: () {},
+                            style: OutlinedButton.styleFrom(
+                              side: BorderSide(color: Colors.white54),
+                              foregroundColor: Colors.white,
+                              padding: EdgeInsets.symmetric(vertical: 12),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Icon(Icons.apple_outlined,size: 30,),
+                                Flexible(
+                                  child: Text(
+                                    "Sign With Apple",
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+
+
                   ],
                 ),
               ),
