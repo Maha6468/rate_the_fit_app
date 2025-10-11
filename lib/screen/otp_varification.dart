@@ -101,32 +101,9 @@ class _OTP_VarificationState extends State<OTP_Varification> {
                   Center(child: Custom_Elevated_Button(
                     text: 'Submit', height: 60, width: 300, onPressed: () {
 
-                    //showDialog(context: context, barrierDismissible: true, builder: (context) => Custom_Congratulations(),);
+                    showDialog(context: context, barrierDismissible: true, builder: (context) => Custom_Congratulations(),);
 
-                    showDialog(
-                      context: context,
-                      barrierDismissible: false, // user tap করলে close হবে না
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: Text("Dialog Title"),
-                          content: Text("This is the content of the dialog."),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.of(context).pop(),
-                              child: Text("OK"),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-
-
-
-
-
-
-
-                    Future.delayed(Duration(seconds: 60), () {
+                    Future.delayed(Duration(seconds: 10), () {
                       Navigator.of(context).pop();
                       Navigator.pushReplacementNamed(context, '/home');
                     });
