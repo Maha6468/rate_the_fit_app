@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rate_the_fit_app/screen/login_with_mob_num.dart';
+import 'package:rate_the_fit_app/screen/otp_varification.dart';
 import 'package:rate_the_fit_app/screen/practice.dart';
 import 'package:rate_the_fit_app/screen/splash_screen.dart';
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home:Login_With_Mob_Num(),
+      home:OTP_Varification(),
     );
   }
 }

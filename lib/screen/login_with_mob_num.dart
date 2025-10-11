@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../coustom_widget/custom_elevated_button.dart';
 import '../coustom_widget/custom_signIn_signUp_resend.dart';
+import '../coustom_widget/custom_star_image.dart';
 
 class Login_With_Mob_Num extends StatefulWidget {
   const Login_With_Mob_Num({super.key});
@@ -33,15 +34,8 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-              
-                    Align(
-                      alignment: Alignment.topRight,
-                      child: CircleAvatar(
-                        radius: 28,
-                        backgroundColor: Colors.black,
-                        child:Image.asset("assets/images/maha.png",height: 100,width: 100,fit:BoxFit.cover,),
-                      ),
-                    ),
+
+                    Custom_Star_Image(),
               
                     SizedBox(height: 30,),
                     Text("Login With \nMobile Number",style: TextStyle(color: Colors.white,fontSize: 30,fontWeight:FontWeight.bold),),
@@ -205,7 +199,7 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
 
                     SizedBox(height: 100,),
 
-                    Custom_SignIn_SignUp_Resend(text: "Don't have an account?", buttontext: 'Sign Up',),
+                    Custom_SignIn_SignUp_Resend(text: "Don't have an account?", buttontext: 'Sign Up', onPressed: () {  },),
 
                   ],
                 ),
