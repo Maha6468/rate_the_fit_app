@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../coustom_widget/custom_elevated_button.dart';
 import '../coustom_widget/custom_signIn_signUp_resend.dart';
 import '../coustom_widget/custom_star_image.dart';
+import 'otp_varification.dart';
 
 class Login_With_Mob_Num extends StatefulWidget {
   const Login_With_Mob_Num({super.key});
@@ -35,7 +36,7 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 
-                    Custom_Star_Image(),
+                    Custom_Star_Image(alignment: Alignment.topRight,),
               
                     SizedBox(height: 30,),
                     Text("Login With \nMobile Number",style: TextStyle(color: Colors.white,fontSize: 30,fontWeight:FontWeight.bold),),
@@ -97,7 +98,12 @@ class _Login_With_Mob_NumState extends State<Login_With_Mob_Num> {
                     ),
                     SizedBox(height: 40,),
                     Center(
-                        child: Custom_Elevated_Button(text: 'LOGIN', width: 300, height: 50, onPressed: () {  },)),
+                        child: Custom_Elevated_Button(
+                          text: 'LOGIN',
+                          width: 300, height: 50,
+                          onPressed: () {
+                            Navigator.push(context,MaterialPageRoute(builder: (Context)=>OTP_Varification()));
+                          },)),
                     SizedBox(height: 40),
 
                     Row(

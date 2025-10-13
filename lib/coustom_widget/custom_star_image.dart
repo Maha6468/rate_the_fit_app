@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class Custom_Star_Image extends StatelessWidget {
-  const Custom_Star_Image({super.key});
+  final Alignment alignment;
+  const Custom_Star_Image({super.key, required this.alignment});
 
   @override
   Widget build(BuildContext context) {
     return  Align(
-      alignment: Alignment.topRight,
+      alignment: alignment,
       child: CircleAvatar(
         radius: 28,
         backgroundColor: Colors.black,

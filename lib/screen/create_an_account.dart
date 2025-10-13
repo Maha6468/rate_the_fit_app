@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../coustom_widget/custom_elevated_button.dart';
 import '../coustom_widget/custom_signIn_signUp_resend.dart';
 import '../coustom_widget/custom_star_image.dart';
+import 'otp_varification.dart';
 
 class Create_An_Account extends StatelessWidget {
   const Create_An_Account({super.key});
@@ -27,7 +28,7 @@ class Create_An_Account extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Custom_Star_Image(),
+                  Custom_Star_Image(alignment: Alignment.topRight,),
                   SizedBox(height: 30,),
                   Text("Create an account",style: TextStyle(color: Colors.white,fontSize: 30,fontWeight:FontWeight.bold),),
                   Text("Please enter below details and enjoy our amazing app",style: TextStyle(color: Colors.grey,letterSpacing: -.4),),
@@ -46,7 +47,12 @@ class Create_An_Account extends StatelessWidget {
                   SizedBox(height: 20),
                   Row_TextField(hintText: 'Mobile Number',),
                   SizedBox(height: 20),
-                 Center(child: Custom_Elevated_Button(text: 'Sign Up', width: 300, height: 50, onPressed: () {  },)),
+                 Center(child: Custom_Elevated_Button(
+                   text: 'Sign Up',
+                   width: 300, height: 50,
+                   onPressed: () {
+                     Navigator.push(context,MaterialPageRoute(builder: (Context)=>OTP_Varification()));
+                   },)),
                   SizedBox(height: 30),
                   Row(
                     children:[
@@ -191,9 +197,15 @@ class Row_TextField extends StatelessWidget {
             filled: true,
             fillColor: Colors.black54,
 
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.grey.shade900, width: 1.5), // normally color
+              borderRadius: BorderRadius.circular(12),
+            ),
+
             border: OutlineInputBorder(
+
                 borderRadius: BorderRadius.circular(8),
-                //borderSide: BorderSide.none,
+                borderSide: BorderSide.none,
             )
 
         ),

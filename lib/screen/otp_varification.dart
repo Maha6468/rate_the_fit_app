@@ -64,7 +64,7 @@ class _OTP_VarificationState extends State<OTP_Varification> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Custom_Star_Image(),
+                  Custom_Star_Image(alignment: Alignment.topRight,),
                   SizedBox(height: 30,),
                   Text("OTP \nVerification", style: TextStyle(color: Colors.white,
                       fontSize: 30,
