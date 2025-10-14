@@ -11,7 +11,7 @@ class Custom_Star_Image extends StatelessWidget {
       child: CircleAvatar(
         radius: 28,
         backgroundColor: Colors.black,
-        child:Image.asset("assets/images/maha.png",height: 100,width: 100,fit:BoxFit.cover,),
+        child:Image.asset("assets/images/star.png",height: 100,width: 100,fit:BoxFit.cover,),
       ),
     );
   }

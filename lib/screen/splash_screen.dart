@@ -37,7 +37,7 @@ class Splash_Screen extends StatelessWidget {
                 ),
           ],
                 ),
-                child:Image.asset("assets/images/maha.png",height: 100,width: 100,fit:BoxFit.cover,)
+                child:Image.asset("assets/images/star.png",height: 100,width: 100,fit:BoxFit.cover,)
               ),
               SizedBox(height: 30,),
               Text("Rate The Fit App",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17,color: Colors.amber.shade50),),
