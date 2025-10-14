@@ -45,9 +45,7 @@ class _HomeState extends State<Home> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                     // Custom_Star_Image(alignment: Alignment.topLeft,),
 
-                  //SizedBox(height: 10,),
 
 
 
