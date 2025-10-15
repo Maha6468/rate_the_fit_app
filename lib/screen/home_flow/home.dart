@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import '../../coustom_widget/custom_star_image.dart';
 
@@ -105,6 +106,10 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   const SizedBox(height: 10),
+
+                  buildPostCard(context),
+                  buildPostCard(context)
+
                 ],
               ),
             ),
@@ -123,6 +128,78 @@ Widget buildStory(String imgPath, String name) {
           backgroundImage: AssetImage(imgPath),
         ),
         Text(name, style: const TextStyle(color: Colors.white)),
+      ],
+    ),
+  );
+}
+
+
+
+Widget buildPostCard(BuildContext context) {
+  final width = MediaQuery.of(context).size.width;
+
+  return Container(
+    width: width,
+    margin: const EdgeInsets.all(10),
+    decoration: BoxDecoration(
+      color: const Color(0xFF1E1E1E),
+      borderRadius: BorderRadius.circular(15),
+    ),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        ListTile(
+          leading: const CircleAvatar(
+            backgroundImage: AssetImage('assets/images/firad.JPG'),
+          ),
+          title: const Text("Cameron Williamson",
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+          subtitle: const Text("7529 E. Pecan St.",
+              style: TextStyle(color: Colors.grey)),
+          trailing: Container(
+            padding: const EdgeInsets.all(6),
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: TextButton(onPressed: (){
+
+  },
+                child: Text("Style Type", style: TextStyle(color: Colors.white70)),
+          ),),),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10),
+          child: Image.asset(
+            "assets/images/firad.JPG",
+            width: width,
+            height: width * 0.6,
+            fit: BoxFit.fill,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: RatingBar.builder(
+            initialRating: 3.5,
+            minRating: 1,
+            direction: Axis.horizontal,
+            allowHalfRating: true,
+            itemSize: 25,
+            itemBuilder: (context, _) => const Icon(Icons.star, color: Colors.amber),
+            onRatingUpdate: (rating) {},
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              Icon(Icons.favorite_border, color: Colors.white70),
+              Icon(Icons.comment_outlined, color: Colors.white70),
+              Icon(Icons.bookmark_border, color: Colors.white70),
+            ],
+          ),
+        ),
+        const SizedBox(height: 10),
       ],
     ),
   );
