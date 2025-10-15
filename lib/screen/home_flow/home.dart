@@ -132,11 +132,12 @@ Widget buildStory(String imgPath, String name) {
 Widget buildPostCard(BuildContext context) {
 
   return Container(
-    height: MediaQuery.of(context).size.height,
-    width: MediaQuery.of(context).size.width,
+   // height: MediaQuery.of(context).size.height,
+   // width: MediaQuery.of(context).size.width,
     decoration: BoxDecoration(
         gradient: LinearGradient(
             colors: [Colors.black, Color(0xFF3B2F2F)],
+
             begin: Alignment.bottomLeft,
             end: Alignment.topRight)),
 
@@ -144,36 +145,56 @@ Widget buildPostCard(BuildContext context) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         ListTile(
-          leading: const CircleAvatar(
-            backgroundImage: AssetImage('assets/images/firad.JPG'),
-          ),
-          title: const Text("Cameron Williamson",
-              style:
-                  TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
-          subtitle: const Text("7529 E. Pecan St.",
-              style: TextStyle(color: Colors.grey)),
-          trailing: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-            decoration: BoxDecoration(
-              color: Color(0xFF3B2F2F),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(-5),
-                topRight: Radius.circular(30),
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(-5),
-              ),
+          leading: Transform.translate(
+            offset: Offset(-1,0 ),
+            child: const CircleAvatar(
+              backgroundImage: AssetImage('assets/images/firad.JPG'),
             ),
-            child: TextButton(
-              onPressed: () {},
-              child: Text("Style Type", style: TextStyle(color: Colors.white)),
+          ),
+          title: Transform.translate(
+            offset: Offset(-6, 0),
+            child: const Text("Cameron Williamson",
+                style:
+                    TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 12
+                    ),maxLines: 1,overflow: TextOverflow.visible, softWrap: false,),
+          ),
+          subtitle: Transform.translate(
+            offset: Offset(-6, 0),
+            child: const Text("7529 E. Pecan St.",
+                style: TextStyle(color: Colors.grey,fontSize: 11)),
+          ),
+          trailing: Transform.translate(
+            offset: Offset(16,0),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 0),
+              decoration: BoxDecoration(
+                //color: Color(0xFF3B2F2F),
+                color: Colors.black26,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(-5),
+                  topRight: Radius.circular(30),
+                  bottomLeft: Radius.circular(30),
+                  bottomRight: Radius.circular(-5),
+                ),
+              ),
+              child: TextButton(
+                onPressed: () {},
+                child: Text("Style Type", style: TextStyle(color: Colors.white)),
+              ),
             ),
           ),
         ),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(10),
-          child: Image.asset(
-            "assets/images/firad.JPG",
-            fit: BoxFit.fill,
+        Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: Image.asset(
+              "assets/images/firad.JPG",
+              fit: BoxFit.fill,
+            ),
           ),
         ),
         Padding(
@@ -200,7 +221,7 @@ Widget buildPostCard(BuildContext context) {
             ],
           ),
         ),
-        const SizedBox(height: 10),
+        //const SizedBox(height: 10),
       ],
     ),
   );
