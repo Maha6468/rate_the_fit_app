@@ -234,19 +234,58 @@ Widget buildPostCard(BuildContext context) {
             ],
           ),
         ),
+
+
+
+
+
         Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: RatingBar.builder(
-            initialRating: 3.5,
-            minRating: 1,
-            direction: Axis.horizontal,
-            allowHalfRating: true,
-            itemSize: 25,
-            itemBuilder: (context, _) =>
-                const Icon(Icons.star, color: Colors.amber),
-            onRatingUpdate: (rating) {},
+          padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              // 🔹 Segmented line background
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: List.generate(5, (index) {
+                  return Expanded(
+                    child: Container(
+                      height: 2,
+                      margin: EdgeInsets.only(right: index == 4 ? 0 : 6),
+                      color: Colors.grey.shade700,
+                    ),
+                  );
+                }),
+              ),
+
+              // 🔹 Stars slightly lower (so not sitting exactly on the line)
+              Padding(
+                padding: const EdgeInsets.only(top: 4), // 👈 this lowers the stars slightly
+                child: RatingBar.builder(
+                  initialRating: 3.5,
+                  minRating: 1,
+                  direction: Axis.horizontal,
+                  allowHalfRating: true,
+                  itemCount: 5,
+                  itemSize: 28,
+                  unratedColor: Colors.grey.shade600,
+                  glow: false,
+                  itemPadding: const EdgeInsets.symmetric(horizontal: 6),
+                  itemBuilder: (context, _) =>
+                  const Icon(Icons.star, color: Colors.amber),
+                  onRatingUpdate: (rating) {
+                    print(rating);
+                  },
+                ),
+              ),
+            ],
           ),
         ),
+
+
+
+
+
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 12.0),
           child: Row(
