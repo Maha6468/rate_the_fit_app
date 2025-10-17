@@ -193,7 +193,6 @@ Widget buildPostCard(BuildContext context) {
           padding: const EdgeInsets.all(16.0),
           child: Stack(
             children: [
-              // 🔹 Image with rounded corners
               ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.asset(
