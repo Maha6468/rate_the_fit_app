@@ -130,14 +130,12 @@ Widget buildStory(String imgPath, String name) {
 }
 
 Widget buildPostCard(BuildContext context) {
-
   return Container(
-   // height: MediaQuery.of(context).size.height,
-   // width: MediaQuery.of(context).size.width,
+    // height: MediaQuery.of(context).size.height,
+    // width: MediaQuery.of(context).size.width,
     decoration: BoxDecoration(
         gradient: LinearGradient(
             colors: [Colors.black, Color(0xFF3B2F2F)],
-
             begin: Alignment.bottomLeft,
             end: Alignment.topRight)),
 
@@ -146,28 +144,31 @@ Widget buildPostCard(BuildContext context) {
       children: [
         ListTile(
           leading: Transform.translate(
-            offset: Offset(-1,0 ),
+            offset: Offset(-1, 0),
             child: const CircleAvatar(
               backgroundImage: AssetImage('assets/images/firad.JPG'),
             ),
           ),
           title: Transform.translate(
             offset: Offset(-6, 0),
-            child: const Text("Cameron Williamson",
-                style:
-                    TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 12
-                    ),maxLines: 1,overflow: TextOverflow.visible, softWrap: false,),
+            child: const Text(
+              "Cameron Williamson",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 12),
+              maxLines: 1,
+              overflow: TextOverflow.visible,
+              softWrap: false,
+            ),
           ),
           subtitle: Transform.translate(
             offset: Offset(-6, 0),
             child: const Text("7529 E. Pecan St.",
-                style: TextStyle(color: Colors.grey,fontSize: 11)),
+                style: TextStyle(color: Colors.grey, fontSize: 11)),
           ),
           trailing: Transform.translate(
-            offset: Offset(16,0),
+            offset: Offset(16, 0),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 0),
               decoration: BoxDecoration(
@@ -182,19 +183,56 @@ Widget buildPostCard(BuildContext context) {
               ),
               child: TextButton(
                 onPressed: () {},
-                child: Text("Style Type", style: TextStyle(color: Colors.white)),
+                child:
+                    Text("Style Type", style: TextStyle(color: Colors.white)),
               ),
             ),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(16.0),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              "assets/images/firad.JPG",
-              fit: BoxFit.fill,
-            ),
+          child: Stack(
+            children: [
+              // 🔹 Image with rounded corners
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  "assets/images/firad.JPG",
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                  height: 250, // চাইলে height adjust করো
+                ),
+              ),
+
+              // 🔹 Rating badge (bottom-right)
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        bottomRight: Radius.circular(18)),
+                  ),
+                  child: Row(
+                    children: const [
+                      Icon(Icons.star, color: Colors.amber, size: 18),
+                      SizedBox(width: 4),
+                      Text(
+                        "3.5",
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
         Padding(
@@ -211,13 +249,43 @@ Widget buildPostCard(BuildContext context) {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12.0),
+          padding: EdgeInsets.symmetric(horizontal: 12.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Icon(Icons.favorite_border, color: Colors.white70),
-              Icon(Icons.comment_outlined, color: Colors.white70),
-              Icon(Icons.bookmark_border, color: Colors.white70),
+            children: [
+              Row(
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.favorite_border, color: Colors.white70)),
+                  Text(
+                    "Like",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.textsms_sharp, color: Colors.white70)),
+                  Text(
+                    "Comments",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+              Row(
+                children: [
+                  IconButton(
+                      onPressed: () {},
+                      icon: Icon(Icons.bookmark_border, color: Colors.white70)),
+                  Text(
+                    "Save",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
             ],
           ),
         ),
