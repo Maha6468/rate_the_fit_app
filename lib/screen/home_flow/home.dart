@@ -244,43 +244,48 @@ Widget buildPostCard(BuildContext context) {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              // 🔹 Segmented line background
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: List.generate(5, (index) {
-                  return Expanded(
-                    child: Container(
-                      height: 2,
-                      margin: EdgeInsets.only(right: index == 4 ? 0 : 6),
-                      color: Colors.grey.shade700,
-                    ),
-                  );
-                }),
+              Container(
+                height: 2,
+                margin: const EdgeInsets.symmetric(horizontal: 8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(2),
+                ),
               ),
 
-              // 🔹 Stars slightly lower (so not sitting exactly on the line)
-              Padding(
-                padding: const EdgeInsets.only(top: 4), // 👈 this lowers the stars slightly
-                child: RatingBar.builder(
-                  initialRating: 3.5,
-                  minRating: 1,
-                  direction: Axis.horizontal,
-                  allowHalfRating: true,
-                  itemCount: 5,
-                  itemSize: 28,
-                  unratedColor: Colors.grey.shade600,
-                  glow: false,
-                  itemPadding: const EdgeInsets.symmetric(horizontal: 6),
-                  itemBuilder: (context, _) =>
-                  const Icon(Icons.star, color: Colors.amber),
-                  onRatingUpdate: (rating) {
-                    print(rating);
-                  },
+
+              Positioned.fill(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: List.generate(5, (index) {
+                    return Container(
+                      width: 1,
+                      height: 8,
+                      //color: Colors.grey.shade700,
+                    );
+                  }),
                 ),
+              ),
+
+              // 🔹 RatingBar (stars aligned with line)
+              RatingBar.builder(
+                initialRating: 3.5,
+                minRating: 1,
+                direction: Axis.horizontal,
+                allowHalfRating: true,
+                itemCount: 5,
+                itemSize: 28,
+                unratedColor: Colors.grey.shade700,
+                itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                itemBuilder: (context, _) =>
+                const Icon(Icons.star, color: Colors.amber),
+                onRatingUpdate: (rating) {},
               ),
             ],
           ),
         ),
+
+
 
 
 
