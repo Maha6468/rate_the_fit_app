@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 import '../../coustom_widget/custom_star_image.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,6 +12,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _page = 0;
   final List<String> userImage = [
     "assets/images/firad.JPG",
     "assets/images/ibnul.JPG",
@@ -110,7 +112,36 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-        ));
+        ),
+
+
+
+      extendBody: true,
+      bottomNavigationBar: CurvedNavigationBar(
+      backgroundColor: Colors.transparent,
+      color: Colors.brown.shade800,
+      buttonBackgroundColor: Colors.amber,
+      height: 60,
+      animationDuration: const Duration(milliseconds: 300),
+      items: const <Widget>[
+        Icon(Icons.home, size: 30, color: Colors.white),
+        Icon(Icons.search, size: 30, color: Colors.white),
+        Icon(Icons.add, size: 30, color: Colors.white),
+        Icon(Icons.favorite, size: 30, color: Colors.white),
+        Icon(Icons.person, size: 30, color: Colors.white),
+      ],
+      onTap: (index) {
+        setState(() {
+          _page = index;
+        });
+      },
+    ),
+
+
+
+
+
+    );
   }
 }
 
@@ -235,10 +266,6 @@ Widget buildPostCard(BuildContext context) {
           ),
         ),
 
-
-
-
-
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8),
           child: Stack(
@@ -253,7 +280,6 @@ Widget buildPostCard(BuildContext context) {
                 ),
               ),
 
-
               Positioned.fill(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -267,29 +293,27 @@ Widget buildPostCard(BuildContext context) {
                 ),
               ),
 
-              // 🔹 RatingBar (stars aligned with line)
-              RatingBar.builder(
-                initialRating: 3.5,
-                minRating: 1,
-                direction: Axis.horizontal,
-                allowHalfRating: true,
-                itemCount: 5,
-                itemSize: 28,
-                unratedColor: Colors.grey.shade700,
-                itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
-                itemBuilder: (context, _) =>
-                const Icon(Icons.star, color: Colors.amber),
-                onRatingUpdate: (rating) {},
-              ),
+
+
+
+
+              //RatingBar
+
+
+
+
+
+
+
+
+
+
+
+
+
             ],
           ),
         ),
-
-
-
-
-
-
 
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 12.0),
@@ -337,3 +361,9 @@ Widget buildPostCard(BuildContext context) {
     ),
   );
 }
+
+
+
+
+
+
